@@ -1,1 +1,2 @@
-// Lógica de la aplicación
+let db = null;
+let filterCat = 'all';

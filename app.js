@@ -207,3 +207,14 @@ function renderAdmin(dishes) {	const sel = document.getElementById('f-cat');	sel
 	</div>${rows}</div>`;
 	}).join('');
 	}
+
+	function renderStats(dishes) {
+	const cats = new Set(dishes.map(d => d.cat)).size;
+	const prices = dishes.map(d => Number(d.price)).filter(p => p > 0);
+	const avg = prices.length ? Math.round(prices.reduce((a,b)=>a+b,0)/prices.length) : 0;
+	document.getElementById('stat-total').textContent = dishes.length;
+	document.getElementById('stat-cats').textContent = cats;
+	document.getElementById('stat-avg').textContent = '₡' + avg.toLocaleString('es-CR');
+	}
+
+	
